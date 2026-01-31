@@ -1,0 +1,20 @@
+[Unit]
+Description=Notion MCP Server (Tailscale)
+After=network.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/notion-mcp.env
+ExecStartPre=-/usr/bin/docker rm -f notion-mcp
+ExecStart=/usr/bin/docker run --rm \
+  --name notion-mcp \
+  -p 43000:43000 \
+  --env-file /etc/notion-mcp.env \
+  -e MCP_HOST=0.0.0.0 \
+  -e MCP_PORT=43000 \
+  notion-mcp
+ExecStop=/usr/bin/docker stop notion-mcp
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

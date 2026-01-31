@@ -1,0 +1,3 @@
+{
+  "mcpServerUrl": "http://<tailscale-host>:43000/mcp"
+}

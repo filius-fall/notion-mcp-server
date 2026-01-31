@@ -1,0 +1,20 @@
+[Unit]
+Description=Notion MCP Server (Local Fallback)
+After=network.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/notion-mcp-local.env
+ExecStartPre=-/usr/bin/docker rm -f notion-mcp-local
+ExecStart=/usr/bin/docker run --rm \
+  --name notion-mcp-local \
+  -p 43000:43000 \
+  --env-file /etc/notion-mcp-local.env \
+  -e MCP_HOST=0.0.0.0 \
+  -e MCP_PORT=43000 \
+  notion-mcp
+ExecStop=/usr/bin/docker stop notion-mcp-local
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

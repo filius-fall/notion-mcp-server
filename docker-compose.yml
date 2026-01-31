@@ -1,0 +1,13 @@
+services:
+  notion-mcp:
+    image: notion-mcp:latest
+    container_name: notion-mcp
+    ports:
+      - "43000:43000"
+    environment:
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: 43000
+      NOTION_API_VERSION: ${NOTION_API_VERSION:-2022-06-28}
+    env_file:
+      - .env
+    restart: unless-stopped

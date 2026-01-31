@@ -1,0 +1,11 @@
+node_modules
+dist
+build
+.env
+.env.*
+*.log
+coverage
+.nyc_output
+*.tgz
+.DS_Store
+.sisyphus
