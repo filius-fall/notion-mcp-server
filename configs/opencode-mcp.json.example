@@ -1,0 +1,26 @@
+{
+  "mcp": {
+    "notion-mcp": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["/absolute/path/to/MCPServers/dist/stdio-server.js"],
+      "cwd": "/absolute/path/to/MCPServers",
+      "env": {
+        "NOTION_TOKEN": "your-notion-integration-token-here"
+      },
+      "enabled": true
+    },
+    // Alternative: Remote server (HTTP)
+    // "notion-mcp": {
+    //   "type": "remote",
+    //   "url": "http://localhost:43000/mcp/events",
+    //   "enabled": true
+    // },
+    // Alternative: Remote server (Tailscale)
+    // "notion-mcp": {
+    //   "type": "remote",
+    //   "url": "http://100.85.99.13:43000/mcp/events",
+    //   "enabled": true
+    // }
+  }
+}

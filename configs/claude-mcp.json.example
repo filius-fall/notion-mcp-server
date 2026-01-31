@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "notion-mcp": {
+      "command": "node",
+      "args": ["/absolute/path/to/MCPServers/dist/stdio-server.js"],
+      "env": {
+        "NOTION_TOKEN": "your-notion-integration-token-here"
+      }
+    },
+    // Alternative: Using npx directly from source
+    // "notion-mcp": {
+    //   "command": "npx",
+    //   "args": ["tsx", "/absolute/path/to/MCPServers/src/stdio-server.ts"],
+    //   "env": {
+    //     "NOTION_TOKEN": "your-notion-integration-token-here"
+    //   },
+    //   "cwd": "/absolute/path/to/MCPServers"
+    // },
+    // Alternative: Remote server (not recommended for Claude Desktop)
+    // Claude Desktop requires stdio, HTTP not supported
+  }
+}
