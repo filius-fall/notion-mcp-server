@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "tsx src/server.ts",
+    "dev:stdio": "tsx src/stdio-server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
     "test": "vitest run",

@@ -1,5 +1,6 @@
 services:
   notion-mcp:
+    build: .
     image: notion-mcp:latest
     container_name: notion-mcp
     ports:
