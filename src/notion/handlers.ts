@@ -8,7 +8,8 @@ export const registerNotionTools = (server: McpServer) => {
   server.registerTool(
     "notion.databases.retrieve",
     {
-      description: "Retrieve a Notion database by id.",
+      description:
+        "Retrieve a Notion database by id. Use when user wants to see database schema, properties, or structure of a Notion database.",
       inputSchema: z.object({
         database_id: z.string(),
       }),
@@ -29,7 +30,8 @@ export const registerNotionTools = (server: McpServer) => {
   server.registerTool(
     "notion.databases.create",
     {
-      description: "Create a Notion database.",
+      description:
+        "Create a new Notion database with custom schema. Use when user wants to create a new database/table in Notion.",
       inputSchema: z.object({
         parent: z.record(z.string(), z.unknown()),
         title: z.array(
@@ -64,7 +66,8 @@ export const registerNotionTools = (server: McpServer) => {
   server.registerTool(
     "notion.databases.query",
     {
-      description: "Query a Notion database.",
+      description:
+        "Query a Notion database to retrieve pages/entries. Use when user wants to list, search, or filter entries in a Notion database.",
       inputSchema: z.object({
         database_id: z.string(),
         filter: z.unknown().optional(),
@@ -96,7 +99,8 @@ export const registerNotionTools = (server: McpServer) => {
   server.registerTool(
     "notion.databases.update",
     {
-      description: "Update a Notion database.",
+      description:
+        "Update a Notion database schema, title, or properties. Use when user wants to modify database structure.",
       inputSchema: z.object({
         database_id: z.string(),
         title: z
@@ -136,7 +140,8 @@ export const registerNotionTools = (server: McpServer) => {
   server.registerTool(
     "notion.pages.retrieve",
     {
-      description: "Retrieve a Notion page by id.",
+      description:
+        "Retrieve a Notion page by id. Use when user wants to read page properties or content.",
       inputSchema: z.object({
         page_id: z.string(),
       }),
@@ -157,7 +162,8 @@ export const registerNotionTools = (server: McpServer) => {
   server.registerTool(
     "notion.pages.create",
     {
-      description: "Create a Notion page.",
+      description:
+        "Create a new page in Notion. Use when user says 'save to notion', 'create page', 'notion this', 'add to notion', or wants to store data in Notion.",
       inputSchema: z.object({
         parent: z.record(z.string(), z.unknown()),
         properties: z.record(z.string(), z.unknown()),
@@ -186,7 +192,8 @@ export const registerNotionTools = (server: McpServer) => {
   server.registerTool(
     "notion.pages.update",
     {
-      description: "Update a Notion page.",
+      description:
+        "Update a Notion page properties. Use when user wants to modify existing page data.",
       inputSchema: z.object({
         page_id: z.string(),
         properties: z.record(z.string(), z.unknown()),
@@ -212,7 +219,8 @@ export const registerNotionTools = (server: McpServer) => {
   server.registerTool(
     "notion.pages.delete",
     {
-      description: "Archive/delete a Notion page.",
+      description:
+        "Archive/delete a Notion page. Use when user wants to remove or delete a page from Notion.",
       inputSchema: z.object({
         page_id: z.string(),
       }),
@@ -234,7 +242,8 @@ export const registerNotionTools = (server: McpServer) => {
   server.registerTool(
     "notion.blocks.children.list",
     {
-      description: "Retrieve children of a block (page content).",
+      description:
+        "Retrieve children of a block (page content/body). Use when user wants to read page content beyond properties.",
       inputSchema: z.object({
         block_id: z.string(),
         start_cursor: z.string().optional(),
@@ -263,7 +272,8 @@ export const registerNotionTools = (server: McpServer) => {
   server.registerTool(
     "notion.blocks.children.append",
     {
-      description: "Append blocks to a block/page.",
+      description:
+        "Append content blocks to a page or block. Use when user wants to add paragraphs, headings, lists, or other content to a page.",
       inputSchema: z.object({
         block_id: z.string(),
         children: z.array(z.record(z.string(), z.unknown())),
@@ -289,7 +299,8 @@ export const registerNotionTools = (server: McpServer) => {
   server.registerTool(
     "notion.blocks.update",
     {
-      description: "Update a block.",
+      description:
+        "Update a block's content. Use when user wants to edit existing page content blocks.",
       inputSchema: z.object({
         block_id: z.string(),
         block: z.record(z.string(), z.unknown()),
@@ -313,7 +324,7 @@ export const registerNotionTools = (server: McpServer) => {
   server.registerTool(
     "notion.blocks.delete",
     {
-      description: "Archive/delete a block.",
+      description: "Archive/delete a block. Use when user wants to remove content from a page.",
       inputSchema: z.object({
         block_id: z.string(),
       }),
